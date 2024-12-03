@@ -1,16 +1,8 @@
-# my_team.py
-# ---------------
-# Licensing Information: Please do not distribute or publish solutions to this
-# project. You are free to use and extend these projects for educational
-# purposes. The Pacman AI projects were developed at UC Berkeley, primarily by
-# John DeNero (denero@cs.berkeley.edu) and Dan Klein (klein@cs.berkeley.edu).
-# For more info, see http://inst.eecs.berkeley.edu/~cs188/sp09/pacman.html
-
-from capture_agents import CaptureAgent
-from distance_calculator import DistanceCalculator
+from contest.capture_agents import CaptureAgent
+from contest.distance_calculator import DistanceCalculator
 import random, time, util, sys
-from game import Directions
-import game
+from contest.game import Directions
+import contest.game
 from util import nearest_point
 import math
 
@@ -387,12 +379,7 @@ class OffensiveReflexAgent(ReflexCaptureAgent):
             if len(invaders) > 0:
                 distanceToEnemy = min([self.get_maze_distance(self.presentCoordinates, a.get_position()) for a in invaders])
             
-            '''
-            Capsule eating:
-            -> If there is capsule available then capsulePower is True.
-            -> If enemy Distance is less than 5 then capsulePower is False.
-            -> If pacman scored a food then return to home capsulePower is False.
-            '''
+    
             if self.capsuleLeft < realLastCapsuleLen:
                 self.capsulePower = True
                 self.eatenFood = 0
